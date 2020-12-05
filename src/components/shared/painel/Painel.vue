@@ -11,7 +11,7 @@ export default {
 };
 </script>
 
-<style>
+<style scoped>
 /* estilo do painel */
 
 .painel {
@@ -37,5 +37,9 @@ export default {
 
 .imagem-responsiva {
   width: 100%;
+}
+
+* {
+  box-shadow: 5px 5px 5px;
 }
 </style>
