@@ -14,19 +14,15 @@ export default {
   data() {
     return {
       title: "VuePic",
-      fotos: [
-        {
-          url:
-            "https://tabelacfop.com.br/assets/images/LogomarcaConectaTecnologia_v1.0-tts.png",
-          title: "Conecta Tecnologia"
-        },
-        {
-          url:
-            "https://tabelacfop.com.br/assets/images/LogomarcaConectaTecnologia_v1.0-tts.png",
-          title: "Conecta Tecnologia"
-        }
-      ]
+      fotos: []
     };
+  },
+  created() {
+    let promise = this.$http.get("http://localhost:3000/v1/fotos");
+
+    promise
+    .then(res => res.json())
+    .then(fotos => (this.fotos = fotos), err => console.log(err));
   }
 };
 </script>
