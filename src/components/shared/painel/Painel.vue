@@ -1,17 +1,17 @@
 <template>
   <div class="painel">
-    <h2 class="painel-title"></h2>
-    <div class="painel-content"></div>
+    <h2 class="painel-title">{{ title }}</h2>
+    <slot class="painel-content"></slot>
   </div>
 </template>
 
 <script>
 export default {
+  props: ['title'],
 };
 </script>
 
 <style>
-
 /* estilo do painel */
 
 .painel {

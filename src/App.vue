@@ -3,16 +3,20 @@
     <h1 class="title">{{ title }}</h1>
     <ul class="photos-list">
       <li class="photos-item" v-for="photo of photos">
-          <meu-painel :title"photo.titulo">
-            <img class="imagem-responsiva" :src="photo.url" :alt="photo.titulo" />
-          <meu-painel>
+          <meu-painel :title="photo.titulo">
+            <img class="imagem-responsiva" :src="photo.url" :alt="photo.titulo"/>
+          </meu-painel>
        </li>
     </ul>
   </div>
 </template>
 
 <script>
+import Painel from './components/shared/painel/Painel.vue';
 export default {
+  components:{
+    'meu-painel' : Painel
+  },
   data() {
     return {
       title: "VuePic",
