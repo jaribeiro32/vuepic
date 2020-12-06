@@ -1,6 +1,7 @@
 <template>
   <div id="app" class="body">
     <h1 class="title">{{ title }}</h1>
+    <input type="search" name="search" class="filtro" v-on:input="filtro = $event.target.value" placeholder="filtre pelo titulo">
     <ul class="photos-list">
       <li class="photos-item" v-for="photo of photos">
           <meu-painel :title="photo.titulo">
@@ -21,6 +22,7 @@ export default {
     return {
       title: "VuePic",
       photos: [],
+      filtro:'',
     };
   },
   created() {
@@ -52,6 +54,11 @@ export default {
 
 .photos-list .photos-item {
   display: inline-block;
+}
+
+.filtro{
+  display: block;
+  width: 100%;
 }
 
 </style>
