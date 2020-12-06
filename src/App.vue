@@ -35,9 +35,8 @@ export default {
     fotosComFiltro() {
       if (this.filtro) {
         /* filtrar */
-        let exp = new RegExp(this.filtro.trim(), 'i');
-        return this.photos.filter(photo => exp.test(photo.titulo));
-
+        let exp = new RegExp(this.filtro.trim(), "i");
+        return this.photos.filter((photo) => exp.test(photo.titulo));
       } else {
         return this.photos;
       }
