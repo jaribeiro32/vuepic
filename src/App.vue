@@ -1,29 +1,47 @@
 <template>
   <div id="app" class="body">
     <h1 class="title">{{ title }}</h1>
-    <input type="search" name="search" class="filtro" v-on:input="filtro = $event.target.value" placeholder="filtre pelo titulo">
+    <input
+      type="search"
+      name="search"
+      class="filtro"
+      v-on:input="filtro = $event.target.value"
+      placeholder="filtre pelo titulo"
+    />
     <ul class="photos-list">
-      <li class="photos-item" v-for="photo of photos">
-          <meu-painel :title="photo.titulo">
-            <img class="imagem-responsiva" :src="photo.url" :alt="photo.titulo"/>
-          </meu-painel>
-       </li>
+      <li class="photos-item" v-for="photo of fotosComFiltro">
+        <meu-painel :title="photo.titulo">
+          <img class="imagem-responsiva" :src="photo.url" :alt="photo.titulo" />
+        </meu-painel>
+      </li>
     </ul>
   </div>
 </template>
 
 <script>
-import Painel from './components/shared/painel/Painel.vue';
+import Painel from "./components/shared/painel/Painel.vue";
 export default {
-  components:{
-    'meu-painel' : Painel
+  components: {
+    "meu-painel": Painel,
   },
   data() {
     return {
       title: "VuePic",
       photos: [],
-      filtro:'',
+      filtro: "",
     };
+  },
+  computed: {
+    fotosComFiltro() {
+      if (this.filtro) {
+        /* filtrar */
+        let exp = new RegExp(this.filtro.trim(), 'i');
+        return this.photos.filter(photo => exp.test(photo.titulo));
+
+      } else {
+        return this.photos;
+      }
+    },
   },
   created() {
     let promise = this.$http.get("http://localhost:3000/v1/fotos");
@@ -56,9 +74,8 @@ export default {
   display: inline-block;
 }
 
-.filtro{
+.filtro {
   display: block;
   width: 100%;
 }
-
 </style>
