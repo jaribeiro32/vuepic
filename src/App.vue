@@ -1,9 +1,10 @@
 <template>
-  <div id="app" class="body"></div>
+  <div id="app" class="body">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
-export default {};
 </script>
 
 <style>
