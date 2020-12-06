@@ -1,9 +1,11 @@
 <template>
   <div class="painel">
-    <h2 class="painel-title" @dblclick="visivel =!visivel">{{ title }}</h2>
-    <div class="painel-content" v-show="visivel">
-      <slot></slot>
-    </div>
+    <h2 class="painel-title" @dblclick="visivel = !visivel">{{ title }}</h2>
+    <transition name="painel-fade">
+      <div class="painel-content" v-show="visivel">
+        <slot></slot>
+      </div>
+    </transition>
   </div>
 </template>
 
@@ -11,11 +13,11 @@
 export default {
   props: ["title"],
 
-  data(){
-    return{
-      visivel: true
-    }
-  }
+  data() {
+    return {
+      visivel: true,
+    };
+  },
 };
 </script>
 
@@ -43,11 +45,14 @@ export default {
   text-transform: uppercase;
 }
 
-.imagem-responsiva {
-  width: 100%;
+
+.painel-fade-enter,
+.painel-fade-leave-active {
+  opacity: 0;
 }
 
-* {
-  box-shadow: 5px 5px 5px;
+.painel-fade-enter-active,
+.painel-fade-leave-active {
+  transition: opacity .4s;
 }
 </style>
