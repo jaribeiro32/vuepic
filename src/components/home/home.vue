@@ -15,7 +15,11 @@
             :url="photo.url"
             :title="photo.titulo"
           ></imagem-responsiva>
-          <meu-botao :tipo="button" rotulo="REMOVER"></meu-botao>
+          <meu-botao
+            :tipo="button"
+            rotulo="REMOVER"
+            @click.native="remove(photo)"
+          ></meu-botao>
         </meu-painel>
       </li>
     </ul>
@@ -30,7 +34,7 @@ export default {
   components: {
     "meu-painel": Painel,
     "imagem-responsiva": ImagemResponsiva,
-    "meu-botao": Botao
+    "meu-botao": Botao,
   },
   data() {
     return {
@@ -50,6 +54,14 @@ export default {
       }
     },
   },
+
+  methods: {
+    remove(photo) {
+      if (confirm("Confirma operação?")) {
+        alert("máh removendo oi - " + photo.titulo);
+      }
+    },
+  },
   created() {
     let promise = this.$http.get("http://localhost:3000/v1/fotos");
 
@@ -64,7 +76,6 @@ export default {
 </script>
 
 <style>
-
 .title {
   text-align: center;
 }
