@@ -14,14 +14,14 @@ export default {
   props: {
     tipo: {
       required: true,
-      type: String
+      type: String,
     },
     rotulo: {
       required: true,
-      type: String
+      type: String,
     },
     confirmacao: Boolean,
-    estilo: String
+    estilo: String,
   },
 
   methods: {

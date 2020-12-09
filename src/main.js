@@ -3,14 +3,14 @@ import App from "./App.vue";
 import VueResource from "vue-resource";
 import VueRouter from "vue-router";
 import { routes } from "./routes";
-import './directives/Tranform';
+import "./directives/Tranform";
 
 Vue.use(VueResource);
 Vue.use(VueRouter);
 
 const router = new VueRouter({
   routes: routes, // ecmscrip6 não precisa ser assim routes: routes
-  mode: 'history'
+  mode: "history"
 });
 
 new Vue({

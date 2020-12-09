@@ -45,7 +45,6 @@ export default {
   text-transform: uppercase;
 }
 
-
 .painel-fade-enter,
 .painel-fade-leave-active {
   opacity: 0;
@@ -53,6 +52,6 @@ export default {
 
 .painel-fade-enter-active,
 .painel-fade-leave-active {
-  transition: opacity .4s;
+  transition: opacity 0.4s;
 }
 </style>
