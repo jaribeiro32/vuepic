@@ -16,7 +16,7 @@
             :title="photo.titulo"
           ></imagem-responsiva>
           <meu-botao
-            :tipo="button"
+            tipo="button"
             rotulo="REMOVER"
             @botaoAtivado="remove(photo)"
             :confirmacao="true"
