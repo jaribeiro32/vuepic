@@ -18,7 +18,7 @@
           <meu-botao
             :tipo="button"
             rotulo="REMOVER"
-            @click.native="remove(photo)"
+            @botaoAtivado="remove(photo)"
           ></meu-botao>
         </meu-painel>
       </li>
@@ -57,9 +57,7 @@ export default {
 
   methods: {
     remove(photo) {
-      if (confirm("Confirma operação?")) {
-        alert("máh removendo oi - " + photo.titulo);
-      }
+      alert("máh removendo oi - " + photo.titulo);
     },
   },
   created() {
