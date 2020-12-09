@@ -12,7 +12,7 @@
       <li class="photos-item" v-for="photo of fotosComFiltro">
         <meu-painel :title="photo.titulo">
           <imagem-responsiva
-          v-meu-transform
+          v-meu-transform="{incremento: 45, animate: true}"
             :url="photo.url"
             :title="photo.titulo"
           ></imagem-responsiva>
