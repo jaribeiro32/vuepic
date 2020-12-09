@@ -19,6 +19,8 @@
             :tipo="button"
             rotulo="REMOVER"
             @botaoAtivado="remove(photo)"
+            :confirmacao="true"
+            estilo="perigo"
           ></meu-botao>
         </meu-painel>
       </li>
